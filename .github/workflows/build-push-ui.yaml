@@ -23,12 +23,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Debug GitHub context
-        run: |
-          echo "Repository = $GITHUB_REPOSITORY"
-          echo "Ref        = $GITHUB_REF"
-          echo "Event      = $GITHUB_EVENT_NAME"
-          echo "SHA        = $GITHUB_SHA"
+      - name: Debug OIDC Token
+        uses: github/actions-oidc-debugger@main
+        id: oidc-debugger
+        continue-on-error: true
 
       - name: Configure AWS credentials via OIDC
         uses: aws-actions/configure-aws-credentials@v6
