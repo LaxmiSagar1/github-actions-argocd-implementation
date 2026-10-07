@@ -21,12 +21,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Configure AWS credentials via OIDC
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
-          role-to-assume: arn:aws:iam::789152801697:role/github-actions-oidc-role-ui
+          role-to-assume: arn:aws:iam::789152801697:role/github-actions-oidc-role-ui3
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to Amazon ECR
